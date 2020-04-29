@@ -130,6 +130,8 @@ Access to web-server can be restricted further via `--client` command-line param
 
 
 ```Bash
+## Server command
+
 sudo ./torrific-nginx-server --torrc='/etc/tor/torrc'\
   --tor-lib-dir='/var/lib/tor'\
   --tor-port='80'\
@@ -143,12 +145,38 @@ sudo ./torrific-nginx-server --torrc='/etc/tor/torrc'\
 
 
 ```Bash
+## Client(s) command
+
 sudo tee -a /etc/tor/torrc 1>/dev/null <<EOF
 HidServAuth thegeneratedaddress.onion S0meLet7er5AndNumbers
 EOF
 
 
 sudo systemctl restart tor.service
+```
+
+
+... hint, when `--client` list is defined the service `hostname` file will contain authorizations for each listed client name...
+
+
+```Bash
+## Server commands
+
+_tor_lib_dir='/var/lib/tor'
+_service_name='hidden_service_name'
+
+
+awk -v _client_names="first-client,second-client,third-client" '{
+  split(_client_names, _names, ",")
+  for (_key in _names) {
+    if ($5 == _names[_key]) {
+      print "HidServAuth", $1, $2, "#", $5
+    } else {
+      print "Cannot find", _names[_key], "within hidden service hostname file"
+      exit 1
+    }
+  }
+}' "${_tor_lib_dir}/${_service_name}/hostname"
 ```
 
 
