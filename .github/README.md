@@ -8,7 +8,7 @@ Scripts to configure Nginx hidden service
 
 ## [![Byte size of Torrific Nginx][badge__master__torrific_nginx__source_code]][torrific_nginx__master__source_code] [![Open Issues][badge__issues__torrific_nginx]][issues__torrific_nginx] [![Open Pull Requests][badge__pull_requests__torrific_nginx]][pull_requests__torrific_nginx] [![Latest commits][badge__commits__torrific_nginx__master]][commits__torrific_nginx__master]
 
-------
+---
 
 
 - [:arrow_up: Top of Document][heading__top]
@@ -24,12 +24,14 @@ Scripts to configure Nginx hidden service
 - [:balance_scale: Licensing][heading__license]
 
 
-------
+---
+
 
 ## Requirements
 [heading__requirements]:
   #requirements
   "&#x1F3D7; Prerequisites and/or dependencies that this project needs to function properly"
+
 
 This repository makes use of Git Submodules to track dependencies, to avoid incomplete downloads clone with the `--recurse-submodules` option...
 
@@ -60,7 +62,7 @@ git submodule update --init --merge --recursive --remote
 > Note, forcing and update of Git Submodule tracked dependencies may cause instabilities and/or merge conflicts; if however everything operates as expected after an update please consider submitting a Pull Request.
 
 
-___
+______
 
 
 ## Quick Start
@@ -116,7 +118,7 @@ docker run --name torrific-nginx\
 ```
 
 
-___
+______
 
 
 ## Notes
@@ -180,13 +182,13 @@ awk -v _client_names="first-client,second-client,third-client" '{
 ```
 
 
-------
+---
 
 
 Pull Requests are certainly welcomed if bugs are found or new features are wanted.
 
 
-___
+______
 
 
 ## Attribution
@@ -201,8 +203,10 @@ ___
 
 - [GitHub -- `opsxcq/docker-tor-hiddenservice-nginx`](https://github.com/opsxcq/docker-tor-hiddenservice-nginx/blob/master/nginx.conf)
 
+- [Tor (Onion) -- Onion Services -- Advanced Settings](http://3gldbgtv5e4god56.onion/onion-services/advanced/onion-location/)
 
-___
+
+______
 
 
 ## License
